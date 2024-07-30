@@ -12,7 +12,7 @@ bot.start((ctx) => {
         }
     ]
     // ctx.reply("Welcome to my bot!");
-    return ctx.reply('Choose option: ', {
+    ctx.reply('Choose option: ', {
         reply_markup: {
             inline_keyboard: keyboard
         }
@@ -23,7 +23,7 @@ bot.help((ctx) => {
 });
 
 bot.action('greet', (ctx) => {
-    return ctx.reply('Welcome to TL Bot')
+    ctx.reply('Welcome to TL Bot')
 });
 
 bot.on("message", async (ctx) => {
