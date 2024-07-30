@@ -5,10 +5,25 @@ const token = process.env.TELEGRAM_TOKEN;
 const bot = new Telegraf(token);
 
 bot.start((ctx) => {
-    ctx.reply("Welcome to my bot!");
+    const keyboard = [
+        {
+            text: 'Welcome!!',
+            callback_data: 'greet'
+        }
+    ]
+    // ctx.reply("Welcome to my bot!");
+    return ctx.reply('Choose option: ', {
+        reply_markup: {
+            inline_keyboard: keyboard
+        }
+    })
 });
 bot.help((ctx) => {
     ctx.reply("Send me a msg")
+});
+
+bot.action('greet', (ctx) => {
+    return ctx.reply('Welcome to TL Bot')
 });
 
 bot.on("message", async (ctx) => {
